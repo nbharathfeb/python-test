@@ -1,14 +1,22 @@
  steps:
-    - name: 'python'
-      entrypoint: 'python'
-      args: ['-m', 'pip', 'install', '--upgrade', 'pip']
-    - name: python
-      entrypoint: python
-      args: ['-m', 'pip', 'install', 'build', 'pytest', 'Flask', '--user']
+   - name: 'python'
+     entrypoint: 'python'
+     args: ['-m', 'pip', 'install', '--upgrade', 'pip']
 
-    - name: 'python'
-      entrypoint: 'python'
-      args: ['-m', 'build']
+   - name: 'python'
+     entrypoint: 'python'
+     args: ['-m', 'pip', 'install', 'r', 'requirements.txt', '--user']
+
+
+
+
+  #  - name: python
+  #    entrypoint: python
+  #    args: ['-m', 'pip', 'install', 'build', 'pytest', 'Flask', '--user']
+
+   - name: 'python'
+     entrypoint: 'python'
+     args: ['-m', 'build']
 
  artifacts:
    pythonPackages:
