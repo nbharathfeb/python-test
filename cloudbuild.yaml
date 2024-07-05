@@ -1,5 +1,4 @@
-# options:
-#   logging: CLOUD_LOGGING_ONLY
+
 
 # steps:
 #    - name: 'python'
@@ -27,8 +26,8 @@
 #     paths: ['dist/*']
 
 steps:
-  - name: "gcr.io/cloud-builders/gcloud"
-    args:
+- name: "gcr.io/cloud-builders/gcloud"
+  args:
       [
         "functions",
         "deploy",
@@ -39,3 +38,5 @@ steps:
         "--runtime=python312",
         "--source=python-test",
       ]
+options:
+  logging: CLOUD_LOGGING_ONLY
