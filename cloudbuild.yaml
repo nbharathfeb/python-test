@@ -1,27 +1,41 @@
-options:
-  logging: CLOUD_LOGGING_ONLY
+# options:
+#   logging: CLOUD_LOGGING_ONLY
+
+# steps:
+#    - name: 'python'
+#      entrypoint: 'python'
+#      args: ['-m', 'pip', 'install', '--upgrade', 'pip']
+
+#    - name: 'python'
+#      entrypoint: 'python'
+#      args: ['-m', 'pip', 'install', 'r', 'requirements.txt', '--user']
+
+
+
+
+#   #  - name: python
+#   #    entrypoint: python
+#   #    args: ['-m', 'pip', 'install', 'build', 'pytest', 'Flask', '--user']
+
+#    - name: 'python'
+#      entrypoint: 'python'
+#      args: ['-m', 'build']
+
+# artifacts:
+#   pythonPackages:
+#   - repository: 'https://southamerica-east1-python.pkg.dev/bharath-project-428310/artifact-test'
+#     paths: ['dist/*']
 
 steps:
-   - name: 'python'
-     entrypoint: 'python'
-     args: ['-m', 'pip', 'install', '--upgrade', 'pip']
-
-   - name: 'python'
-     entrypoint: 'python'
-     args: ['-m', 'pip', 'install', 'r', 'requirements.txt', '--user']
-
-
-
-
-  #  - name: python
-  #    entrypoint: python
-  #    args: ['-m', 'pip', 'install', 'build', 'pytest', 'Flask', '--user']
-
-   - name: 'python'
-     entrypoint: 'python'
-     args: ['-m', 'build']
-
-artifacts:
-  pythonPackages:
-  - repository: 'https://southamerica-east1-python.pkg.dev/bharath-project-428310/artifact-test'
-    paths: ['dist/*']
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      [
+        "functions",
+        "deploy",
+        "function-1",
+        "--entry-point=hello_http",
+        "--region=us-central1",
+        "--trigger-http",
+        "--runtime=python312",
+        "--source=python-test",
+      ]
