@@ -20,5 +20,5 @@
 
  artifacts:
    pythonPackages:
-     repository: 'https://southamerica-east1-python.pkg.dev/bharath-project-428310/artifact-test'
-     paths: ['dist/*']
+     - repository: 'https://southamerica-east1-python.pkg.dev/bharath-project-428310/artifact-test'
+       paths: ['dist/*']
